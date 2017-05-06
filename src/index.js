@@ -1,3 +1,4 @@
+import _ from 'lodash';
 // Adding the component aspect to the React import to extend from the component.
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -23,6 +24,8 @@ class App extends Component {
   	// Sec.2 lec. 29 3. The video selector is going to be created within 
   	// the component state of "App" component.
   	// Sec.2 lec. 29 5. Here we are to pass another initialzer to the state.
+  	// Sec.2 lec. 33 1. This is a component level state, 
+  	// which only belongs to index.js.  There is also one in search_bar.
   	this.state = { 
   		videos: [],
   		selectedVideo: null
@@ -57,6 +60,8 @@ class App extends Component {
 	  // instead of the videoDetails "this.state".
     }); 
  	}
+// Sec.2 lec.32 1. First thing to do when pushing up the speed of your search 
+// and not searching per character is to install lodash.
 
 // Sec.2 lec. 28 adding anything within the render function is going to call that item to the page
 // Sec.2 lec. 28 1. To keep the render func from passing "undefined" we will pass a condition.
@@ -69,17 +74,22 @@ class App extends Component {
 // finally to video_list_item.
 // Sec.2 lec. 29 12. Now the selected video is being directly passed onto VideoList by onVideoSelect.
   render() {
+  	const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+// Sec.2 lec.32 2. this videoSearch _.debounce function is going to help throttle the searching for the term.
+// Sec.2 lec.32 3. The 300 constitutes the amount of milliseconds that the search is going to wait
+// before starting over with a new search.
     return (
-	  <div>
-	    <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
-	    <VideoDetail video={this.state.selectedVideo} />
-	    <VideoList 
-	    	onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-	    	videos={this.state.videos} />
-	  </div>
+	  	<div>
+		    <SearchBar onSearchTermChange={videoSearch} />
+		    <VideoDetail video={this.state.selectedVideo} />
+		    <VideoList 
+		    	onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+		    	videos={this.state.videos} />
+	  	</div>
     );
   }
 }
+
 // Under SearchBar we are passing the "prop," videos, into the child component VideoList.
 
 // Take this component's generated HTML and put it 

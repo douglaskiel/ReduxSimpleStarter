@@ -1,3 +1,17 @@
+.container {
+	padding: 50px;
+	background-color: #f4e0d7;
+background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+/* This is mostly intended for prototyping; 
+please download the pattern and re-host for 
+production environments. Thank you! */
+}
+
+#video {
+	border-radius: 2px;
+	box-shadow: 5px 5px 15px grey;
+}
+
 .search-bar {
 	margin: 20px;
 	text-align: center;
@@ -10,6 +24,10 @@
 
 .video-item img {
 	max-width: 64px;
+}
+
+.details {
+	font-weight: bold;
 }
 
 .video-detail .details {

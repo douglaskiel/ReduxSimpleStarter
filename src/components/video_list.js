@@ -1,7 +1,8 @@
+// This component creates the list for the videos to be chosen from.
 import React from 'react';
 import VideoListItem from './video_list_item';
 
-// - props is a new argument to the function called VideoList
+// - props the parameter to a new argument to the function called VideoList
 // - if this were to ever become a classbased component the 
 //   {props.videos.length} would have to become => {this.props.videos.length}
 const VideoList = (props) => {

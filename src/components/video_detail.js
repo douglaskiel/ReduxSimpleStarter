@@ -1,3 +1,4 @@
+// This is rendering the video and details describing the video.
 import React from 'react';
 
 // Sec.2 lec.27 3. the {video} is taking the place of (props) as an es6 

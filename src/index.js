@@ -1,3 +1,4 @@
+// This is the over-arching component containing all of the other smaller/child components.
 import _ from 'lodash';
 // Adding the component aspect to the React import to extend from the component.
 import React, { Component } from 'react';
@@ -17,7 +18,7 @@ class App extends Component {
   constructor(props) {
   	super(props);
 
-  	// the video detail need to worry about the video 
+  	// the video detail needs to worry about the video 
   	// title, url and description of the video 
 
   	// This comes through props which is already being called here

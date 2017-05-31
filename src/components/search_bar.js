@@ -1,3 +1,4 @@
+// This component contains all dealing with the search bar.
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
